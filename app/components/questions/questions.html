@@ -9,3 +9,27 @@
 <p>The questions can be orderby max upvotes or by date created depending on the users choice.</p>
 <p>The question can be filtered based upon tags, unanswered</p>
 <p>No voting from this page.</p>
+
+<h1>This is the   Questions</h1>
+
+<form ng-submit="addQuestion(newQuestion)">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input ng-model="newQuestion.title" type="text">
+    </div>
+    <div class="form-group">
+        <label for="body">Description</label>
+        <input ng-model="newQuestion.body" type="text">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="btn btn-danger" type="reset">Clear</button>
+</form>
+
+<div ng-repeat="question in questions">
+    <ul class="list-group">
+        <li class="list-group-item">
+            {{question.title}}<br>
+            {{question.body}}
+        </li>
+    </ul>
+</div>
