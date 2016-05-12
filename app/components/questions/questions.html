@@ -24,12 +24,16 @@
     <button type="submit" class="btn btn-primary">Submit</button>
     <button class="btn btn-danger" type="reset">Clear</button>
 </form>
-
 <div ng-repeat="question in questions">
     <ul class="list-group">
         <li class="list-group-item">
             {{question.title}}<br>
-            {{question.body}}
+            {{question.body}}<br>
+            <a ng-click="vote(1)" class="glyphicon glyphicon-arrow-up"></a>
+            <span>{{question.voteCount}}</span>
+            <a ng-click="vote(-1)" class="glyphicon glyphicon-arrow-down"></a>
+            <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
         </li>
     </ul>
 </div>
+
