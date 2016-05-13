@@ -38,28 +38,32 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 	$scope.comments = comments;
 	$scope.responses = responses;
 
-	$scope.addComment = function (newComment) {
-		$scope.comments.$add(newComment)
-		$scope.comments = {}
+	$scope.addComment = function (newQuestion) {
+		newQuestion.memberId = $rootScope.member.$id;
+		$scope.comments.$add(newQuestion).then(function (ref) {
+			$rootScope.member.comments = $rootScope.member.comments || {};
+			$rootScope.member.comments[ref.key()] = ref.key();
+			$rootScope.member.$save();
+		})
 	}
 	$scope.addResponses = function (newResponse) {
 		$scope.responses.$add(newResponse)
 		$scope.responses = {}
 	}
-	
+
 	// $scope.vote = function (v) {
 	// 	console.log("value", v)
-		
-		
+
+
 	// 	$scope.question.voteCount = 0;
 	// 	for (var key in $scope.question.votes) {
 	// 		$scope.question.voteCount += $scope.question.votes[key];
-			
+
 	// 			$scope.question.voteCount += v;
 	// 			Console.log($scope.question.voteCount)
-			
-			
-			
+
+
+
 	// 	}
 	// 	$scope.question.$save()
 	// }
