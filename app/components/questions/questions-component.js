@@ -39,12 +39,14 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 	$scope.responses = responses;
 
 	$scope.addComment = function (newComment) {
-		$scope.comments.$add(newComment)
-		$scope.comments = {}
+		$scope.comments.$add(newComment);
+		$scope.comments.$save();
+		$scope.comments = {};
 	}
 	$scope.addResponses = function (newResponse) {
-		$scope.responses.$add(newResponse)
-		$scope.responses = {}
+		$scope.responses.$add(newResponse);
+		$scope.question.$save();
+		$scope.responses = {};
 	}
 	
 	// $scope.vote = function (v) {
