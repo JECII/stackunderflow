@@ -29,10 +29,13 @@
                 <label for="body">Body</label>
                 <input class="form-control" ng-model="newQuestion.body" type="text">
             </div>
-            <div>
-                 <label for="type">Type</label>
-                <input class="form-control" ng-model="newQuestion.type" type="text" required>
+            <div class="form-group">
+                 <label for ="type">Type</label>
+                <input class="form-control" ng-model="query" type="text" required>
             </div>
+            <div class="form-group">
+                <label for="checkbox"></label>
+                <input class="form-control" ng-model="newQuestion.checkbox" type="checkbox">
             <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button class="btn btn-danger" type="reset">Clear</button>
@@ -41,17 +44,22 @@
     </div>
 </div>
 
+            <div class="special">
+                 <label for="type" style="text-align: center">Search Type</label>
+                <input class="form-control" ng-model="query" type="text" required>
+            </div>
+            <hr>
 
 
 
 
 
-<div ng-repeat="question in questions">
+<div ng-repeat="question in questions | filter: query">
     <ul class="list-group container">
         <li class="list-group-item row">
             <div class="col-sm-4">
                Title: {{question.title}}<br>Body: {{question.body}}
-                <br>Type: {{question.type}}
+                <br>
             </div>
             <div class="col-sm-4">
                 <a ng-click="vote(1)" class="glyphicon glyphicon-arrow-up"></a>
