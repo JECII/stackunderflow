@@ -10,6 +10,7 @@
 <p>A member may only upvote the Comments/answers/comments once.</p>
 <p>A member can change their vote to either up or down but may not vote both ways.</p>-->
 
+
 <div>
     <ul class="list-group">
         <li class="list-group-item">
@@ -18,39 +19,56 @@
     </ul>
 </div>
 
- <h4>Comments</h4>
-<form ng-submit="addComment(newComment)">
-    <div class="form-group">
-        <label for="title">Title:</label>
-        <input ng-model="newComment.title" type="text">
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Comments</h3>
     </div>
-    <div class="form-group">
-        <label for="body">Description:</label>
-        <input ng-model="newComment.body" type="text">
+    <div class="panel-body">
+        <form ng-submit="addComment(newComment)">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input class="form-control" ng-model="newComment.title" type="text">
+            </div>
+            <div class="form-group">
+                <label for="body">Description:</label>
+                <input class="form-control" ng-model="newComment.body" type="text">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
+
+
 
 <div ng-repeat="comment in comments">
-    <ul class="list-group">
-        <li class="list-group-item">
-            Title: {{comment.title}}
-            <br> Body: {{comment.body}}
-            <br> Author: {{member.username}}
-            <button ng-click="response = !response">Respond</button>
-           
-           
-            <form ng-show="response" ng-submit="addComment(newComment)">
-                <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input ng-model="newComment.title" type="text">
-                </div>
-                <div class="form-group">
-                    <label for="body">Description:</label>
-                    <input ng-model="newComment.body" type="text">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    <ul class="list-group container">
+        <li class="list-group-item row">
+            <div class="col-sm-4">
+                Title: {{comment.title}}
+                <br> Body: {{comment.body}}
+                <br> Author: {{member.username}}
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-primary" ng-click="response = !response">Respond</button>
+            </div>
+
+            <div>
+                <form ng-show="response" ng-submit="addComment(newComment)">
+                    <div class="form-group" style="margin-top: 50px">
+                        <label for="title">Title:</label>
+                        <input class="form-control" ng-model="newComment.title" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Description:</label>
+                        <input class="form-control" ng-model="newComment.body" type="text">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
 
         </li>
     </ul>

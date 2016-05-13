@@ -1,10 +1,9 @@
 
 <div id="main-container" class="container-fluid">
-<button ng-click="show = !show">Edit Profile</button>
+<button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
 
     <div ng-show="show" class="profile">
         <form ng-submit="updateMember()" class="form">
-            <label for="Profile">Select Genre:</label>
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input placeholder="username" type="text" class="form-control" ng-model="member.username">
@@ -48,8 +47,8 @@
 
 
             <div class="btn-group">
-                <button class="btn btn-default" type="submit">Submit</button>
-                <button class="btn btn-default" type="reset">Clear</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="reset">Clear</button>
             </div>
         </form>
     </div>
