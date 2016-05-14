@@ -1,4 +1,5 @@
-<div class="jumbotron"> <h1>Comment</h1> </div>
+<div class="jumbotron">
+    <center> <h1>Comment</h1></center> </div>
 
 <!--<p>If we are logged in we should have a member obj</p>-->
 
@@ -22,7 +23,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Comments</h3>
+       <center> <h3 class="panel-title jumbotron">Comments</h3> </center>
     </div>
     <div class="panel-body">
         <form ng-submit="addComment(newQuestion)">
@@ -38,8 +39,6 @@
         </form>
     </div>
 </div>
-
-
 
 <div ng-repeat="comment in comments">
     <ul class="list-group container">
