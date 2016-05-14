@@ -34,8 +34,7 @@
                 <input class="form-control" ng-model="query" type="text" required>
             </div>
             <div class="form-group">
-                <label for="checkbox"></label>
-                <input class="form-control" ng-model="newQuestion.checkbox" type="checkbox">
+                 
             <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button class="btn btn-danger" type="reset">Clear</button>
@@ -66,6 +65,7 @@
                 <span>{{question.voteCount}}</span>
                 <a ng-click="vote(-1)" class="glyphicon glyphicon-arrow-down"></a>
                 <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
+                <input ng-model="newQuestion.checkbox" type="checkbox">
             </div>
             <div class="col-sm-4">
                 
