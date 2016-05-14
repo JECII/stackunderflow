@@ -1,6 +1,22 @@
-
 <div id="main-container" class="container-fluid">
-<button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+    <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="question in myQuestions || filter:{visible: true} | limitTo: 5">
+                Question {{question.title}}<br> Question {{question.body}}
+                <br> Question {{question.author}}
+                <div class="container">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="comment in myQuestions">
+                            Comment {{comment.title}}<br> comment {{comment.body}}
+                            <br>  comment {{comment.author}}
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 
     <div ng-show="show" class="profile">
         <form ng-submit="updateMember()" class="form">
@@ -20,27 +36,27 @@
                 <label for="Image Url">Image Url:</label>
                 <input placeholder="Image Url" type="text" class="form-control" ng-model="member.imgUrl">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Country">Country:</label>
                 <input placeholder="Country" type="text" class="form-control" ng-model="member.country">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Bio">Bio:</label>
                 <input placeholder="Bio" type="text" class="form-control" ng-model="member.bio">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Website Url">Website Url:</label>
                 <input placeholder="Website Url" type="text" class="form-control" ng-model="member.websiteUrl">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Github">Github:</label>
                 <input placeholder="Github" type="text" class="form-control" ng-model="member.github">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Twitter Handle">Twitter Handle:</label>
                 <input placeholder="Twitter Handle" type="text" class="form-control" ng-model="member.twitterHandle">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Favorite Tags">Favorite Tags:</label>
                 <input placeholder="Favorite Tags" type="text" class="form-control" ng-model="member.favoriteTags">
             </div>
@@ -54,8 +70,12 @@
     </div>
 
 
-	
-	<!--Members are requesting a form where they can edit their memberObject.
+
+
+
+
+
+    <!--Members are requesting a form where they can edit their memberObject.
 	items denoted with ** should be stored on the memberObject
 	howerever the edit form should not allow the Member to change these values 
 	

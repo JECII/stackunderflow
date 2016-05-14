@@ -1,10 +1,28 @@
-app.controller('DashboardController', function($rootScope, $scope){
+app.controller('DashboardController', function($rootScope, $scope, DataService){
+	$scope.myQuestions=[];
+	$scope.tags = DataService.getTags();
+	DataService.getQuestions().$loaded(function(data){
+		debugger
+		findMemberId(data)	
+	});
 	
+	console.log($scope.questions)
 	$scope.updateMember= function(){
 		
 	 $rootScope.member.$save()
-	 console.log($rootScope.member)
+	//  console.log($rootScope.member)
 	}
+	 function findMemberId(questions){
+		var currentMember = $rootScope.member.$id;
+		for(var i = 0; i < questions.length; i++){
+			if(currentMember == questions[i].memberId){		
+				$scope.myQuestions.push(questions[i])
+			}
+		}
+	 }
+	 
+	 
+	
 	// /
 	//  * To edit the member object you must go through $rootScope.member
 	//  * $rootScope.member is a $firebaseObject from AngularFire 

@@ -8,15 +8,41 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
 
 	$scope.addQuestion = function (newQuestion) {
 		newQuestion.memberId = $rootScope.member.$id;
+		newQuestion.posted= Date.now();
+		newQuestion.author = $rootScope.username;
+		newQuestion.answeredOn;
+		newQuestion.answered = false;
+		newQuestion.tags= ['HTML', 'JavaScript', 'AngularJS']
 		$scope.questions.$add(newQuestion).then(function (ref) {
+			
 			//Add the newly added question to the member object	
 			$rootScope.member.questions = $rootScope.member.questions || {};
 			//Another Dictonary structure all we are doing is adding the questionId to the member.questions dictionary.
 			//To avoid duplicating data in our database we only store the questionId instead of the entire question again 
 			$rootScope.member.questions[ref.key()] = ref.key();
 			$rootScope.member.$save();
+			$scope.newQuestion = null;
 		})
 	}
+	
+	$rootScope.vote = function (question, v) {
+		console.log("value", v)
+		question.votes = question.votes ||  {};
+		question.votes[$rootScope.member.$id] = v
+		totalVotes(question);		
+		$scope.questions.$save(question)
+	}
+	
+	 function totalVotes(question){
+		question.voteCount = 0;
+		for(var user in question.votes){
+			question.voteCount += question.votes[user] 
+		}
+		
+		
+		
+	}
+	
 	// question Schema
 	// {
 	//  title: string,
@@ -39,36 +65,25 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 	$scope.responses = responses;
 
 
-	$scope.addComment = function (newQuestion) {
-		newQuestion.memberId = $rootScope.member.$id;
-		$scope.comments.$add(newQuestion).then(function (ref) {
+	$scope.addComment = function (newComment) {
+		newComment.memberId = $rootScope.member.$id;
+		$scope.comments.$add(newComment).then(function (ref) {
 			$rootScope.member.comments = $rootScope.member.comments || {};
 			$rootScope.member.comments[ref.key()] = ref.key();
 			$rootScope.member.$save();
+			$scope.newComment = null;
 		})
 	}
 	$scope.addResponses = function (newResponse) {
-		$scope.responses.$add(newResponse);
-		$scope.question.$save();
-		$scope.responses = {};
-	}
+		newResponse.memberId = $rootScope.member.$id;
+		$scope.responses.$add(newResponse).then(function (ref) {
+			$rootScope.member.responses = $rootScope.member.responses || {};
+			$rootScope.member.responses[ref.key()] = ref.key();
+			$rootScope.member.$save();
+			$scope.newResponse = null;
+	})
 
-	// $scope.vote = function (v) {
-	// 	console.log("value", v)
-
-
-	// 	$scope.question.voteCount = 0;
-	// 	for (var key in $scope.question.votes) {
-	// 		$scope.question.voteCount += $scope.question.votes[key];
-
-	// 			$scope.question.voteCount += v;
-	// 			Console.log($scope.question.voteCount)
-
-
-
-	// 	}
-	// 	$scope.question.$save()
-	// }
+	
 	/**
 	 * The question, comments, responses arguments being passed into the controller  ^^^^^^^
 	 * come from the question route resolve,
@@ -122,5 +137,5 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 	 *	tags: [tags] 
 	 * } 
 	 */
-
+	}
 });
