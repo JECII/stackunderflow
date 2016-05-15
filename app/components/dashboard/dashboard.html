@@ -25,7 +25,7 @@
 
     <div class="container">
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="question in myQuestions || filter:{visible: true} | limitTo: 5">
+            <li class="list-group-item" ng-repeat="question in myQuestions | filter:{visible: true} | limitTo: 5">
                 Question {{question.title}}<br> Question {{question.body}}
                 <br> Question {{question.author}}
                 <div class="container">
