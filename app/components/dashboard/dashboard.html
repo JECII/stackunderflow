@@ -1,5 +1,26 @@
 <div id="main-container" class="container-fluid">
+    <div class="welcome-profile">
+        <div class="row-p">
+            <div class="col-xs-4"> 
+                <h1>Hello {{member.firstname}}</h1>               
+                <img ng-src="{{member.imgUrl}}">
+            </div>
+              <div class="col-xs-8">   
+                You were here last on {{member.questions}}<br>
+                You are a {{star}} user <br>
+                click here to see the questions you have asked <br>
+                click here to see comments you have made<br>
+                click here to see responses you have offered<br>
+                upvotes=<br>
+                downvotes=<br>
+             
+                
+            </div>
+        </div>
     <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+        
+    </div>
+    
 
     <div class="container">
         <ul class="list-group">

@@ -2,7 +2,6 @@ app.controller('DashboardController', function($rootScope, $scope, DataService){
 	$scope.myQuestions=[];
 	$scope.tags = DataService.getTags();
 	DataService.getQuestions().$loaded(function(data){
-		debugger
 		findMemberId(data)	
 	});
 	
@@ -10,7 +9,7 @@ app.controller('DashboardController', function($rootScope, $scope, DataService){
 	$scope.updateMember= function(){
 		
 	 $rootScope.member.$save()
-	//  console.log($rootScope.member)
+	console.log($rootScope.member)
 	}
 	 function findMemberId(questions){
 		var currentMember = $rootScope.member.$id;
