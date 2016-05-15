@@ -1,4 +1,4 @@
-<h1>QUESTIONS</h1>
+<!--<h1>QUESTIONS</h1>-->
 
 <!--<p>If we are logged in we should have a member obj {{member}}</p>
 
@@ -10,9 +10,12 @@
     how many upvotes or downvotes the question itself has.</p>
 <p>The questions can be orderby max upvotes or by date created depending on the users choice.</p>
 <p>The question can be filtered based upon tags, unanswered</p>
-<p>No voting from this page.</p>
+<p>No voting from this page.</p>-->
 
-<h1>This is the   Questions</h1>-->
+
+
+<div class="jumbotron"><center> <h1> Questions</h1></center>  </div>
+
 
 
 <div class="panel panel-default">
@@ -26,9 +29,15 @@
                 <input class="form-control" ng-model="newQuestion.title" type="text">
             </div>
             <div class="form-group">
-                <label for="body">Description</label>
+                <label for="body">Body</label>
                 <input class="form-control" ng-model="newQuestion.body" type="text">
             </div>
+            <div class="form-group">
+                 <label for ="type">Type</label>
+                <input class="form-control" ng-model="query" type="text" required>
+            </div>
+            <div class="form-group">
+                 
             <div class="btn-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button class="btn btn-danger" type="reset">Clear</button>
@@ -37,12 +46,17 @@
     </div>
 </div>
 
+            <div class="special">
+                 <label for="type" style="text-align: center">Search Type</label>
+                <input class="form-control" ng-model="query" type="text" required>
+            </div>
+            <hr>
 
 
 
 
 
-<div ng-repeat="question in questions">
+<div ng-repeat="question in questions | filter: query">
     <ul class="list-group container">
         <li class="list-group-item row">
             <div class="col-sm-4">
@@ -54,6 +68,7 @@
                 <span>{{question.voteCount}}</span>
                 <a  class="glyphicon glyphicon-arrow-down" ng-click="vote(question, -1)"></a>
                 <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
+                <input ng-model="newQuestion.checkbox" type="checkbox">
             </div>
             <div class="col-sm-4">
                 
