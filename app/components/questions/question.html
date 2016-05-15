@@ -1,5 +1,7 @@
 <div class="jumbotron">
-    <center> <h1>Comment</h1></center> </div>
+    <center>
+        <h1>Comment</h1></center>
+</div>
 
 <!--<p>If we are logged in we should have a member obj</p>-->
 
@@ -23,7 +25,8 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-       <center> <h3 class="panel-title jumbotron">Comments</h3> </center>
+        <center>
+            <h3 class="panel-title jumbotron">Comments</h3> </center>
     </div>
     <div class="panel-body">
         <form ng-submit="addComment(newQuestion)">
@@ -73,11 +76,10 @@
     </ul>
 </div>
 
-
-<!--<div class="col-sm-4">
-                <a ng-click="vote(1)" class="glyphicon glyphicon-arrow-up"></a>
-                <span>{{question.voteCount}}</span>
-                <a ng-click="vote(-1)" class="glyphicon glyphicon-arrow-down"></a>
-                <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
-                <input ng-model="newQuestion.checkbox" type="checkbox">
-            </div>-->
+<div class="col-sm-4">
+    <a ng-click="vote(1)" class="glyphicon glyphicon-arrow-up"></a>
+    <span>{{question.voteCount}}</span>
+    <a ng-click="vote(-1)" class="glyphicon glyphicon-arrow-down"></a>
+    <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
+    <input ng-model="newQuestion.checkbox" type="checkbox">
+</div>
