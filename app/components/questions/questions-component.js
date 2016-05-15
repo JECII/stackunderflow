@@ -84,10 +84,6 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 			$scope.newResponse = null;
 	})
 
-	// 	$scope.responses.$add(newResponse);
-	// 	$scope.question.$save();
-	// 	$scope.responses = {};
-	// }
 
 	$scope.vote = function (v) {
 		console.log("value", v)
