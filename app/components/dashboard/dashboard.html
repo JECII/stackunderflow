@@ -1,6 +1,5 @@
-
 <div id="main-container" class="container-fluid">
-<button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+    <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
 
     <div ng-show="show" class="profile">
         <form ng-submit="updateMember()" class="form">
@@ -20,31 +19,30 @@
                 <label for="Image Url">Image Url:</label>
                 <input placeholder="Image Url" type="text" class="form-control" ng-model="member.imgUrl">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Country">Country:</label>
                 <input placeholder="Country" type="text" class="form-control" ng-model="member.country">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Bio">Bio:</label>
                 <input placeholder="Bio" type="text" class="form-control" ng-model="member.bio">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Website Url">Website Url:</label>
                 <input placeholder="Website Url" type="text" class="form-control" ng-model="member.websiteUrl">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Github">Github:</label>
                 <input placeholder="Github" type="text" class="form-control" ng-model="member.github">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Twitter Handle">Twitter Handle:</label>
                 <input placeholder="Twitter Handle" type="text" class="form-control" ng-model="member.twitterHandle">
             </div>
-			<div class="form-group">
+            <div class="form-group">
                 <label for="Favorite Tags">Favorite Tags:</label>
                 <input placeholder="Favorite Tags" type="text" class="form-control" ng-model="member.favoriteTags">
             </div>
-
 
             <div class="btn-group">
                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -52,10 +50,32 @@
             </div>
         </form>
     </div>
+    <hr>
+    <div class="item-group jumbotron">
+        <span> <em> <b>{{member.username}}'s History of: </b> </em> </span>
+        <hr>
+
+        <a ui-sref="" class="btn btn-primary"> Questions</a>
 
 
-	
-	<!--Members are requesting a form where they can edit their memberObject.
+        <a ui-sref="question({id:question.$id})" class="btn btn-primary"> Comments</a>
+
+
+        <a ui-sref="" class="btn btn-primary"> Responses</a>
+
+        <hr>
+    </div>
+    <div>
+        <hr>
+        <span> <em> <b> Reputation: {{member.reputation}} </b> </em> </span>
+        <hr>
+    </div>
+                    {{member.questions}}
+                    {{member.responses}}
+
+
+
+    <!--Members are requesting a form where they can edit their memberObject.
 	items denoted with ** should be stored on the memberObject
 	howerever the edit form should not allow the Member to change these values 
 	

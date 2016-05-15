@@ -1,55 +1,62 @@
 <html ng-app="stackunderflow">
+
 <head>
 	<meta charset="UTF-8">
 	<title>StackUnderFlow</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/dist/angular-clock.css">
 	<link rel="stylesheet" href="assets/styles/style.css">
 </head>
+
 <body ng-controller="AppController">
-	
+
 	<!--HEADER HERE-->
 	<navbar></navbar>
-	
+
 	<!-- ui-view is a custom directive 
 	used to load the views from the routes
 	with dynamic content -->
 	<div class="container-fluid content-container">
 		<ui-view></ui-view>
 	</div>
-	
+
 	<!--FOOTER HERE-->
-	
+
 	<footer class="stacked-footer">
 		<div class="col-sm-10 col-sm-offset-1 text-center">
-				 <img src="assets/img/stackunderflow.png" alt="stackunderflow logo">&reg;   
+			<img src="assets/img/stackunderflow.png" alt="stackunderflow logo">&reg;
 		</div>
 	</footer>
-	
+
 	<!--ANGULAR-->
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-	
+	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+	<script src="bower_components/angular-ui-clock/dist/angular-clock.min.js"></script>
+
 	<!--FIREBASE-->
 	<script src="bower_components/firebase/firebase.js"></script>
 	<script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-	
+
+
 	<!--START APP CONFIG-->
 	<script src="app/config/init.js"></script>
 	<script src="app/config/constants.js"></script>
 	<script src="app/config/routes.js"></script>
 	<script src="app/config/app-controller.js"></script>
-	
+
 	<!--LOAD APP COMPONENTS-->
 	<script src="app/components/home/home-component.js"></script>
 	<script src="app/components/auth/auth-component.js"></script>
 	<script src="app/components/questions/questions-component.js"></script>
 	<script src="app/components/dashboard/dashboard-component.js"></script>
-	
+
 	<!--LOAD SERVICE UTILS-->
 	<script src="app/utils/data-service.js"></script>
 
 	<!--CUSTOM DIRECTIVES-->
 	<script src="app/directives/navbar/navbar.js"></script>
-	
+
 </body>
+
 </html>
