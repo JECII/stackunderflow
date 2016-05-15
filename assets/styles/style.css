@@ -27,6 +27,7 @@ input {
 	
 	text-align:center;
 }
+
 .container-login{
 	background: url(../../assets/img/Stack.jpg) center no-repeat;
 	background-size: cover;
@@ -79,5 +80,8 @@ margin-bottom: 20px;
 	color: white;
 	padding: 20 10 20 10;
 	border-radius: 5px;
-	
+}
+
+.clock{	
+	background-color: black;	
 }

@@ -1,4 +1,5 @@
 <div id="main-container" class="container-fluid">
+
     <div class="welcome-profile">
         <div class="row-p">
             <div class="col-xs-4"> 
@@ -38,6 +39,8 @@
             </li>
         </ul>
     </div>
+    <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+
 
     <div ng-show="show" class="profile">
         <form ng-submit="updateMember()" class="form">
@@ -82,17 +85,37 @@
                 <input placeholder="Favorite Tags" type="text" class="form-control" ng-model="member.favoriteTags">
             </div>
 
-
             <div class="btn-group">
                 <button class="btn btn-primary" type="submit">Submit</button>
                 <button class="btn btn-primary" type="reset">Clear</button>
             </div>
         </form>
     </div>
+    <hr>
+    <div class="item-group jumbotron">
+        <span> <em> <b>{{member.username}}'s History of: </b> </em> </span>
+        <hr>
+
+        <a ui-sref="" class="btn btn-primary"> Questions</a>
 
 
 
 
+
+
+        <a ui-sref="question({id:question.$id})" class="btn btn-primary"> Comments</a>
+
+
+        <a ui-sref="" class="btn btn-primary"> Responses</a>
+
+        <hr>
+    </div>
+    <div>
+        <hr>
+        <span> <em> <b> Reputation: {{member.reputation}} </b> </em> </span>
+        <hr>
+    </div>
+    {{member.questions}} {{member.responses}}
 
 
 

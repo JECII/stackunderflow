@@ -1,6 +1,9 @@
-<h1>A SINGLE Comment VIEW</h1>
+<div class="jumbotron">
+    <center>
+        <h1>Comment</h1></center>
+</div>
 
-<p>If we are logged in we should have a member obj</p>
+<!--<p>If we are logged in we should have a member obj</p>-->
 
 <!--<h3>Comment Rules</h3>
 <p>A member must be logged in to cast votes, ask Comments, add responses, or add comments</p>
@@ -22,7 +25,8 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Comments</h3>
+        <center>
+            <h3 class="panel-title jumbotron">Comments</h3> </center>
     </div>
     <div class="panel-body">
         <form ng-submit="addComment(newComment)">
@@ -38,8 +42,6 @@
         </form>
     </div>
 </div>
-
-
 
 <div ng-repeat="comment in comments">
     <ul class="list-group container">
@@ -84,4 +86,12 @@
             </div>
         </li>
     </ul>
+</div>
+
+<div class="col-sm-4">
+    <a ng-click="vote(1)" class="glyphicon glyphicon-arrow-up"></a>
+    <span>{{question.voteCount}}</span>
+    <a ng-click="vote(-1)" class="glyphicon glyphicon-arrow-down"></a>
+    <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
+    <input ng-model="newQuestion.checkbox" type="checkbox">
 </div>

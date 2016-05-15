@@ -75,6 +75,7 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 		})
 	}
 	$scope.addResponses = function (newResponse) {
+
 		newResponse.memberId = $rootScope.member.$id;
 		$scope.responses.$add(newResponse).then(function (ref) {
 			$rootScope.member.responses = $rootScope.member.responses || {};
@@ -83,7 +84,28 @@ app.controller('QuestionController', function ($rootScope, $scope, question, com
 			$scope.newResponse = null;
 	})
 
-	
+	// 	$scope.responses.$add(newResponse);
+	// 	$scope.question.$save();
+	// 	$scope.responses = {};
+	// }
+
+	$scope.vote = function (v) {
+		console.log("value", v)
+
+
+		$scope.question.voteCount = 0;
+		for (var key in $scope.question.votes) {
+			$scope.question.voteCount += $scope.question.votes[key];
+
+				$scope.question.voteCount += v;
+				Console.log($scope.question.voteCount)
+
+
+
+		}
+		$scope.question.$save()
+	}
+
 	/**
 	 * The question, comments, responses arguments being passed into the controller  ^^^^^^^
 	 * come from the question route resolve,
