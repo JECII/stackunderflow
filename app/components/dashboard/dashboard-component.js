@@ -5,7 +5,6 @@ app.controller('DashboardController', function($rootScope, $scope, DataService){
 		findMemberId(data)	
 	});
 	
-	console.log($scope.questions)
 	$scope.updateMember= function(){
 		
 	 $rootScope.member.$save()
@@ -17,6 +16,7 @@ app.controller('DashboardController', function($rootScope, $scope, DataService){
 			if(currentMember == questions[i].memberId){		
 				$scope.myQuestions.push(questions[i])
 			}
+	console.log($scope.questions)
 		}
 	 }
 	 
