@@ -213,11 +213,11 @@ margin-bottom: 5px;
 
 #ScrollStyle2{
 	background-color: white;
-	color: white;
+	color: black;
   overflow-y:scroll; 
 overflow-x:hidden;
 border-radius:5px; 
-height:525px;
+height:200px;
 border: 1px solid lightgrey;
 	padding-top: 25px;
 	margin-top: 25px;
@@ -243,7 +243,7 @@ padding-left: 25px;
 
 #ScrollStyle2 li:hover{
     background-color: white;
-    color: white;
+    color: black;
 }
 .res{
 	color: white;
