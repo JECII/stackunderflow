@@ -18,8 +18,8 @@
         <center>
             <h1> Questions</h1></center>
     </div>
-  
-    <form id="ask" class="form-inline">
+
+    <form id="ask" class="form form-inline">
         <div class="form-group">
 
             <div class="special">
@@ -34,7 +34,7 @@
     <div id="questions-enter" ng-show="show">
         <div class="panel-title">
             <h3>Ask A Question</h3>
-       </div>
+        </div>
         <div class="panel-inside">
             <form class="form form-inline" ng-submit="addQuestion(newQuestion)">
                 <div class="form-group">
@@ -46,38 +46,37 @@
                     <input class="form-control" ng-model="newQuestion.body" type="text">
                 </div>
 
-                <div class="form-group">
-                    <div class="btn-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button class="btn btn-warning" type="reset">Clear</button>
-                    </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button class="btn btn-warning" type="reset">Clear</button>
+                </div>
+
             </form>
-            </div>
         </div>
     </div>
 
 
 
 
- <div id="ScrollStyle" class="row-q">
-    <div ng-repeat="question in questions | filter: query">
-        <ul class="list-group container">
-            <li class="list-group-item row">
-                <div class="col-sm-4">
-                    Title: {{question.title}}<br>Body: {{question.body}}
-                    {{memberId}}
-                    <br>
-                </div>
-                <div id="field" class="col-sm-4 col-xs-offset-4">
-                    <a class="glyphicon glyphicon-arrow-up" ng-click="vote(question, 1)"></a>
-                    <span>{{question.voteCount}}</span>
-                    <a class="glyphicon glyphicon-arrow-down" ng-click="vote(question, -1)"></a>
-                    <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
-                    <input  ng-model="newQuestion.checkbox" type="checkbox">
-                </div>
-            </li>
-        </ul>
-    </div>
+
+    <div id="ScrollStyle" class="row-q">
+        <div ng-repeat="question in questions | filter: query">
+            <ul class="list-group container">
+                <li class="list-group-item row">
+                    <div class="col-sm-4">
+                        Title: {{question.title}}<br>Body: {{question.body}}
+                        <br>
+                    </div>
+                    <div id="field" class="col-sm-4 col-xs-offset-4">
+                        <a class="glyphicon glyphicon-arrow-up" ng-click="vote(question, 1)"></a>
+                        <span>{{question.voteCount}}</span>
+                        <a class="glyphicon glyphicon-arrow-down" ng-click="vote(question, -1)"></a>
+                        <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
+                        <input ng-model="newQuestion.checkbox" type="checkbox">
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 
 

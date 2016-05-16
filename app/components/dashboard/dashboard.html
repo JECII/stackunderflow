@@ -69,6 +69,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>
@@ -96,10 +97,11 @@
         <span> <em> <b>{{member.username}}'s History of: </b> </em> </span>
         <hr>
 
-        <!--<a ui-sref="" class="btn btn-primary"> Questions</a>-->
-        <!--<a ui-sref="comments({id:comments.$id})" class="btn btn-primary"> comments?</a>-->
 
-        <a ui-sref="question({id:question.$id})" class="btn btn-primary"> Comments</a>
+        <!--<a ui-sref="findAllComments" class="btn btn-primary"> Questions</a>-->
+
+
+        <a ui-sref="questions({id:questions.$id})" class="btn btn-primary"> Comments</a>
 
 
         <!--<a ui-sref="" class="btn btn-primary"> Responses</a>-->
@@ -108,10 +110,11 @@
     </div>
     <!--<div>
         <hr>
-        <span> <em> <b> Reputation: {{member.reputation}} </b> </em> </span>
+        <span> <em> <b> Reputation:{{member.reputation}} </b> </em> </span>
         <hr>
-    </div>-->
-    <!--{{member.questions}} {{member.responses}}-->
+
+    </div>
+
 
 
 
