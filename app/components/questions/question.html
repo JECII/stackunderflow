@@ -21,7 +21,7 @@
     <div class="Question">
         <ul class="list-group">
             <li class="list-group-item">
-                <h3>Question</h3> Title: {{question.title}}<br> Body: {{question.body}}<br> Author: {{member.username}}
+                <h3>Question</h3> Title: {{question.title}}<br> Body: {{question.body}}<br> Author: {{question.name}}
             </li>
         </ul>
     </div>
@@ -51,7 +51,7 @@
                     <div class="col-sm-4">
                         Comment Title: {{comment.title}}
                         <br> Comment Body: {{comment.body}}
-                        <br> Comment Author: {{member.username}}
+                        <br> Comment Author: {{question.name}}
                     </div>
                     <div id="comment-field" class="col-sm-4 col-xs-offset-1">
                         <a class="glyphicon glyphicon-arrow-up" ng-click="vote(comment, 1)"></a>
@@ -76,7 +76,7 @@
                                 <label class="res" for="body">Description:</label>
                                 <input class="form-control" ng-model="newResponse.body" type="text">
                             </div>
-                            <div class= "btn btn-group col-sm-2">
+                            <div class= "btn btn-group-inline col-sm-2">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="reset" class="btn btn-danger">Reset</button>
                                 <br>
