@@ -1,17 +1,20 @@
 app.controller('DashboardController', function($rootScope, $scope, DataService){
 	$scope.myQuestions=[];
+	$scope.myComments=[];
 	$scope.tags = DataService.getTags();
 	DataService.getQuestions().$loaded(function(data){
-		findMemberId(data)	
+	findMemberId(data)	
 	});
 	
-	console.log($scope.questions)
+	// console.log($scope.questions)
 	$scope.updateMember= function(){
 		
 	 $rootScope.member.$save()
 	console.log($rootScope.member)
 	}
+	
 	 function findMemberId(questions){
+		var keys = Object.keys(questions[0].comments);
 		var currentMember = $rootScope.member.$id;
 		for(var i = 0; i < questions.length; i++){
 			if(currentMember == questions[i].memberId){		
@@ -19,7 +22,19 @@ app.controller('DashboardController', function($rootScope, $scope, DataService){
 			}
 		}
 	 }
+	//  function findMemberForComments(comments){
+	// 	var keys = Object.keys(questions.comments[0]);
+	// 	var currentMember = $rootScope.member.$id;
+	// 	for(var j = 0; j < questions.comments.length; j++){
+	// 		if(currentMember == questions.comments[j].memberId){		
+	// 			$scope.myComments.push(comments[j])
+	// 		}
+	// 	}
+	//  }
+	//  findMemberForComments()
 	 
+	 
+
 	 
 	
 	// /

@@ -85,24 +85,29 @@ margin-bottom: 20px;
 .clock{	
 	background-color: black;	
 }*/
-#greeting{
+/*#greeting{
 	border: 1px solid red;
 }
 .profile{
 	border: 1px solid red;
-}
+}*/
 #greeting img{
 	height: 400px;
 }
 .container-questions{
 background: black url(../../assets/img/Stack.jpg) center no-repeat;
+	background-image: linear-gradient(to top, black, transparent);
 	background-size: cover;
     min-height: 800px;
     margin-top: -45;
 	margin-bottom: -15;
     position: relative;
-	
 }
+ds-widget-clock{
+	color: darkgoldenrod;
+}
+	
+
 #questions-heading{
 	  border-radius: 5px;
     opacity: .65; 
@@ -144,6 +149,7 @@ display: inline-block;
 	margin-right:25px;
 }
 #ScrollStyle{
+	background-color: black;
   overflow-y:scroll; 
 overflow-x:hidden;
 border-radius:5px; 
@@ -179,3 +185,24 @@ padding-left: 25px;
 	padding: 0 0 0 0;
 	display:inline-block;
 }
+
+#comments{
+	text-align:center;
+	/*background-color:black;*/
+}
+#response-enter{
+	text-align:center;
+}
+.form-profile{
+	margin-top:5px;
+margin-right:10px;
+margin-left:10px;
+margin-bottom: 5px;
+
+}
+
+.panel-body button{
+	margin-top:370px;
+}
+
+

@@ -7,9 +7,11 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
 
 
 	$scope.addQuestion = function (newQuestion) {
+		// console.log(newQuestion)
 		newQuestion.memberId = $rootScope.member.$id;
 		newQuestion.posted= Date.now();
-		newQuestion.author = $rootScope.username;
+		
+		// newQuestion.member = $rootScope.username;
 		newQuestion.answeredOn;
 		newQuestion.answered = false;
 		newQuestion.tags= ['HTML', 'JavaScript', 'AngularJS']
@@ -38,8 +40,6 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
 		for(var user in question.votes){
 			question.voteCount += question.votes[user] 
 		}
-		
-		
 		
 	}
 	
