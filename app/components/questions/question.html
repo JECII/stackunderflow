@@ -69,11 +69,11 @@
 
                         <form class="form form-inline" ng-submit="addResponseToComment(newResponse, comment)">
                             <div class="form-group col-sm-5">
-                                <label class="res" for="title">Title:</label>
+                                <label style="color:white" for="title">Title:</label>
                                 <input class="form-control" ng-model="newResponse.title" type="text">
                             </div>
                             <div class="form-group col-sm-5">
-                                <label class="res" for="body">Description:</label>
+                                <label style="color:white" for="body">Description:</label>
                                 <input class="form-control" ng-model="newResponse.body" type="text">
                             </div>
                             <div class= "btn btn-group-inline col-sm-2">
@@ -86,6 +86,7 @@
                 </li>
                 <li>
                     <div class="responses-box" ng-show="show">
+                        <div class="ScrollStyle2 row">
                         <div ng-repeat="response in comment.responses">
                             <ul class="list-group">
                                 <li class="list-group-item row">
@@ -97,6 +98,7 @@
                                     </div>
                                 </li>
                             </ul>
+                            </div>
                         </div>
                     </div>
                 </li>
