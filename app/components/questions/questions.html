@@ -25,13 +25,13 @@
             <div class="special">
                 <label style="text-align: center"></label>
                 <input placeholder="Search Questions" class="form-control" ng-model="query" type="text">
-                <button id="view-form" class="btn" ng-click="show = !show">Post a Question</button>
+                <!--<button id="view-form" class="btn" ng-click="show = !show">Post a Question</button>-->
             </div>
         </div>
     </form>
 
 
-    <div id="questions-enter" ng-show="show">
+    <div id="questions-enter" >
         <div class="panel-title">
             <h3>Ask A Question</h3>
         </div>
@@ -48,7 +48,7 @@
 
                 <div class="btn-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button class="btn btn-warning" type="reset">Clear</button>
+                    <button class="btn btn-default" type="reset">Clear</button>
                 </div>
 
             </form>
@@ -79,5 +79,5 @@
         </div>
     </div>
 
-
+</div>
 

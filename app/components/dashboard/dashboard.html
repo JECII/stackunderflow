@@ -2,11 +2,11 @@
 
     <div class="welcome-profile">
         <div class="row-p">
-            <div id="greeting" class="col-xs-6">
+            <div id="greeting" class="col-xs-5">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h1>Hello <br>{{member.firstname}}<b>
-                    <!--{{member.lastname}} -->
+                   
                 </h1></div>
                     <div class="panel panel-body">
                         <img ng-src="{{member.imgUrl}}">
@@ -16,7 +16,7 @@
             </div>
 
 
-            <div class="col-xs-6">
+            <div class="col-xs-7">
                 <div ng-show="show" id="profile" class="panel panel-default">
                     <div class="panel-heading">
                         <h4>{{member.firstname}}'s Profile</h4>
@@ -73,75 +73,18 @@
             </div>
         </div>
     </div>
+</div>
 
-    <!--<div class="container">
+
+
+<div class="container member-questions">
+    <button class="btn btn-primary" ng-click="bob = !bob">Questions</button>
+    <div class="ScrollStyle" ng-show="bob">
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="question in myQuestions">
-                Question {{question.title}}<br> Question {{question.body}}
-                <br> Question {{question.memberId}}
-                <div class="container">
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="comment in myQuestions">
-                            Comment {{comment.title}}<br> comment {{comment.body}}
-                            <br> comment {{comment.author}}
-                        </li>
-                    </ul>
-                </div>
+                Title: {{question.title}}<br> Body: {{question.body}}
             </li>
         </ul>
-    </div>-->
-
-
-
-    <div class="item-group jumbotron">
-        <span> <em> <b>{{member.username}}'s History of: 
-            {{myQuestions}} </b> </em> </span>
-        <hr>
-
-
-        <a  class="btn btn-primary" ng-click=" findMemberId(data) ">All Questions</a>
-
-
-
-
-        <hr>
     </div>
-    <!--<div>
-        <hr>
-        <span> <em> <b> Reputation:{{member.reputation}} </b> </em> </span>
-        <hr>
+</div>
 
-    </div>
-
-
-
-
-    <!--Members are requesting a form where they can edit their memberObject.
-	items denoted with ** should be stored on the memberObject
-	howerever the edit form should not allow the Member to change these values 
-	
-	MemberObjectSchema
-	{
-		username: string,
-		firstName: string,
-		lastName: string,
-		imgUrl:  string,
-		country: string,
-		bio: string,
-		websiteUrl: string,
-		github: string,
-		twitterHandle: string,
-		favoriteTags: [tag], // <--- BONUS: use commas in the input field to add multiple tags. Or Look at multiselect inputs
-		**accountCreated: date,
-		**upVotes: number,
-		**downVotes: number,
-		**reputation: number,
-		**questions: [questionId]
-		**answers: [answerId],
-		**comments: [commentId]
-		//Add anything else you think would be a cool feature to track
-	}
-
-	WARNING: Firebase will not allow you to add null properties to any object. When you need the specific field you can simple create it and pass its value. 	
-
--->
