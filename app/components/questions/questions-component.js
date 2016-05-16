@@ -7,7 +7,7 @@ app.controller('QuestionsController', function ($rootScope, $scope, DataService)
 
 
 	$scope.addQuestion = function (newQuestion) {
-		newQuestion.member = $rootScope.username;
+		newQuestion.member = $rootScope.member.username;
 		newQuestion.answeredOn;
 		newQuestion.answered = false;
 		newQuestion.tags = ['HTML', 'JavaScript', 'AngularJS']

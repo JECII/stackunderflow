@@ -27,16 +27,7 @@ app.controller('DashboardController', function ($rootScope, $scope, DataService)
 		
 			
 		}
-	// $scope.findAllComments = function(comments){
-	// 		var keys = Object.keys(questions[0].comments);
-	// 		// var currentCommments = questions[0].comments[keys[0]].body;
-	// 		for (var i = 0;i < keys.length;i++){
-	// 			if( currentComments == keys[i]){
-	// 				return{currentComments}
-	// 			}
-	// 		}
-	// 		findAllComments()
-	// }
+	
 
 
 
