@@ -8,6 +8,12 @@
                         <h1>Hello <br>{{member.firstname}}<b>
                    
                 </h1></div>
+                    <div>
+                        <a>Reputation: {{member.reputation}}</a>
+                        <hr>
+                        <a>Account Created: {{member.created | date}}</a>
+                        <hr>
+                    </div>
                     <div class="panel panel-body">
                         <img ng-src="{{member.imgUrl}}">
                         <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
@@ -87,5 +93,3 @@
         </ul>
     </div>
 </div>
-
-            
