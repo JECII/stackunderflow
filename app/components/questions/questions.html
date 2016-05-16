@@ -58,6 +58,7 @@
 
 
 
+
     <div id="ScrollStyle" class="row-q">
         <div ng-repeat="question in questions | filter: query">
             <ul class="list-group container">
@@ -80,29 +81,3 @@
 
 
 
-    <!--example-->
-
-    <!--
-    <div class="section" ng-show="show">
-        <span><h3>My Favorite Books</h3><input class="search" placeholder="Search" type="text" ng-model="$ctrl.query"></span>
-        <button id="view-2" class="btn" ng-click="show = !show">Return To Main Library</button>
-
-
-        <div id="ScrollStyle" class="row">
-
-            <div class="col-xs-4" ng-repeat="book in $ctrl.store | filter: $ctrl.query">
-
-                <div class="thumbnail">
-                    <p>{{book.type}}</p>
-                    <img style='height: 200px; background: url("{{book.cover}}") no-repeat center center; background-size: contain; width:100%'>
-                    <div class="caption">
-                        <h3>{{book.title}}</h3>
-                        <p>{{book.author}} </p>
-                        <rating-component on-update="$ctrl.changeRating" book="book"></rating-component>
-                        <button ng-click="$ctrl.removeBook(book)">Remove Book</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->

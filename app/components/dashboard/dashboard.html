@@ -2,105 +2,117 @@
 
     <div class="welcome-profile">
         <div class="row-p">
-            <div id="greeting" class="col-xs-4"> 
-                <h1>Hello {{member.firstname}}</h1>               
-                <img ng-src="{{member.imgUrl}}">
+            <div id="greeting" class="col-xs-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1>Hello <br>{{member.firstname}}<b>
+                    <!--{{member.lastname}} -->
+                </h1></div>
+                    <div class="panel panel-body">
+                        <img ng-src="{{member.imgUrl}}">
+                        <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+                    </div>
+                </div>
             </div>
-              <div class="profile col-xs-8">   
-                You were here last on {{member.questions}}<br>
-                You are a {{star}} user <br>
-                click here to see the questions you have asked <br>
-                click here to see comments you have made<br>
-                click here to see responses you have offered<br>
-                upvotes=<br>
-                downvotes=<br>                
+
+
+            <div class="col-xs-6">
+                <div ng-show="show" id="profile" class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>{{member.firstname}}'s Profile</h4>
+                    </div>
+                    <form ng-submit="updateMember()" class="form form-profile">
+                        <div class="form-group inline-form">
+                            <label for="username">Username:</label>
+                            <input placeholder="username" type="text" class="form-control" ng-model="member.username">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname">Firstname:</label>
+                            <input placeholder="Firstname" type="text" class="form-control" ng-model="member.firstname">
+                        </div>
+                        <div class="form-group">
+                            <label for="Lastname">Lastname:</label>
+                            <input placeholder="Lastname" type="text" class="form-control" ng-model="member.lastname">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image Url">Image Url:</label>
+                            <input placeholder="Image Url" type="text" class="form-control" ng-model="member.imgUrl">
+                        </div>
+                        <div class="form-group">
+                            <label for="Country">Country:</label>
+                            <input placeholder="Country" type="text" class="form-control" ng-model="member.country">
+                        </div>
+                        <div class="form-group">
+                            <label for="Bio">Bio:</label>
+                            <input placeholder="Bio" type="text" class="form-control" ng-model="member.bio">
+                        </div>
+                        <div class="form-group">
+                            <label for="Website Url">Website Url:</label>
+                            <input placeholder="Website Url" type="text" class="form-control" ng-model="member.websiteUrl">
+                        </div>
+                        <div class="form-group">
+                            <label for="Github">Github:</label>
+                            <input placeholder="Github" type="text" class="form-control" ng-model="member.github">
+                        </div>
+                        <div class="form-group">
+                            <label for="Twitter Handle">Twitter Handle:</label>
+                            <input placeholder="Twitter Handle" type="text" class="form-control" ng-model="member.twitterHandle">
+                        </div>
+                        <div class="form-group">
+                            <label for="Favorite Tags">Favorite Tags:</label>
+                            <input placeholder="Favorite Tags" type="text" class="form-control" ng-model="member.favoriteTags">
+                        </div>
+
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <button class="btn btn-primary" type="reset">Clear</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
-
-        
     </div>
-    
 
-    <div class="container">
+    <!--<div class="container">
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="question in myQuestions">
-                Question {{question.title}}
+                Question {{question.title}}<br> Question {{question.body}}
+                <br> Question {{question.memberId}}
+                <div class="container">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="comment in myQuestions">
+                            Comment {{comment.title}}<br> comment {{comment.body}}
+                            <br> comment {{comment.author}}
+                        </li>
+                    </ul>
+                </div>
             </li>
         </ul>
-    </div>
-    <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
+    </div>-->
 
 
-    <div ng-show="show" class="profile">
-        <form ng-submit="updateMember()" class="form">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input placeholder="username" type="text" class="form-control" ng-model="member.username">
-            </div>
-            <div class="form-group">
-                <label for="firstname">Firstname:</label>
-                <input placeholder="Firstname" type="text" class="form-control" ng-model="member.firstname">
-            </div>
-            <div class="form-group">
-                <label for="Lastname">Lastname:</label>
-                <input placeholder="Lastname" type="text" class="form-control" ng-model="member.lastname">
-            </div>
-            <div class="form-group">
-                <label for="Image Url">Image Url:</label>
-                <input placeholder="Image Url" type="text" class="form-control" ng-model="member.imgUrl">
-            </div>
-            <div class="form-group">
-                <label for="Country">Country:</label>
-                <input placeholder="Country" type="text" class="form-control" ng-model="member.country">
-            </div>
-            <div class="form-group">
-                <label for="Bio">Bio:</label>
-                <input placeholder="Bio" type="text" class="form-control" ng-model="member.bio">
-            </div>
-            <div class="form-group">
-                <label for="Website Url">Website Url:</label>
-                <input placeholder="Website Url" type="text" class="form-control" ng-model="member.websiteUrl">
-            </div>
-            <div class="form-group">
-                <label for="Github">Github:</label>
-                <input placeholder="Github" type="text" class="form-control" ng-model="member.github">
-            </div>
-            <div class="form-group">
-                <label for="Twitter Handle">Twitter Handle:</label>
-                <input placeholder="Twitter Handle" type="text" class="form-control" ng-model="member.twitterHandle">
-            </div>
-            <div class="form-group">
-                <label for="Favorite Tags">Favorite Tags:</label>
-                <input placeholder="Favorite Tags" type="text" class="form-control" ng-model="member.favoriteTags">
-            </div>
 
-            <div class="btn-group">
-                <button class="btn btn-primary" type="submit">Submit</button>
-                <button class="btn btn-primary" type="reset">Clear</button>
-            </div>
-        </form>
-    </div>
-    <hr>
     <div class="item-group jumbotron">
-        <span> <em> <b>{{member.username}}'s History of: </b> </em> </span>
+        <span> <em> <b>{{member.username}}'s History of: 
+            {{myQuestions}} </b> </em> </span>
         <hr>
 
-       
-        
 
-        <a ui-sref="questions({id:questions.$id})" class="btn btn-primary">All Questions</a>
+        <a  class="btn btn-primary" ng-click=" findMemberId(data) ">All Questions</a>
 
 
-        
+
 
         <hr>
     </div>
-    <div>
+    <!--<div>
         <hr>
         <span> <em> <b> Reputation:{{member.reputation}} </b> </em> </span>
         <hr>
+
     </div>
-   
+
 
 
 

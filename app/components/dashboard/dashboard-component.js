@@ -1,8 +1,10 @@
+
 app.controller('DashboardController', function ($rootScope, $scope, DataService) {
 	$scope.myQuestions = [];
 	$scope.tags = DataService.getTags();
 	DataService.getQuestions().$loaded(function (data) {
-		findMemberId(data)
+		// findMemberId(data)
+		$scope.data = data
 	});
 
 	// console.log($scope.questions)
@@ -11,13 +13,15 @@ app.controller('DashboardController', function ($rootScope, $scope, DataService)
 		$rootScope.member.$save()
 		console.log($rootScope.member)
 	}
-	function findMemberId(questions) {debugger
+	function findMemberId(questions) {
 		
 		var currentMemberId = $rootScope.member.$id;
 		for (var i = 0; i < questions.length; i++) {
 			if (currentMemberId == questions[i].memberId) {
 				$scope.myQuestions.push(questions[i])
 			}
+			// return $scope.myQuestions 
+			
 		}
 		// console.log(questions[0].comments[keys[0]].body)
 		// console.log(questions[0].comments[keys[1]].body)

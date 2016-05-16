@@ -1,3 +1,4 @@
+
 app.controller('QuestionsController', function($rootScope, $scope, DataService) {
 
     // https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray

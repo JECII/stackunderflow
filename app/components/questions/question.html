@@ -1,7 +1,8 @@
-<div class="jumbotron">
+<!--<div class="jumbotron">
     <center>
-        <h1>Comment</h1></center>
-</div>
+        <h1>Comment</h1></center>-->
+<!--</div>{{member.$id}}-->
+
 
 <!--<p>If we are logged in we should have a member obj</p>-->
 
@@ -13,7 +14,58 @@
 <p>A member may only upvote the Comments/answers/comments once.</p>
 <p>A member can change their vote to either up or down but may not vote both ways.</p>-->
 
+<div id="comments" class="panel panel-default">
+    <div id="comment-title" class="panel-title panel-default">
+        <h2>Make a Comment About This Question</h2>
+    </div>
+    <div class="Question">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h3>Question</h3> Title: {{question.title}}<br> Body: {{question.body}}<br> Author: {{member.username}}
+            </li>
+        </ul>
+    </div>
+    <div id="comment-enter">
+        <div class="panel-body">
+            <form class="form form-inline" ng-submit="addComment(newComment)">
+                <div class="form-group">
+                    <label for="title">Comment Title:</label>
+                    <input class="form-control" ng-model="newComment.title" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="body">Description:</label>
+                    <input class="form-control" ng-model="newComment.body" type="text">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
 
+
+
+<div id="ScrollStyle" class="row-c">
+    <div ng-repeat="comment in comments">
+        <ul class="list-group container">
+            <li class="list-group-item row">
+                <div class="col-sm-4">
+                    Comment Title: {{comment.title}}
+                    <br> Comment Body: {{comment.body}}
+                    <br> Comment Author: {{member.username}}
+                </div>
+                <div id="comment-field" class="col-sm-4 col-xs-offset-4">
+                    <a class="glyphicon glyphicon-arrow-up" ng-click="vote(comment, 1)"></a>
+                    <span>{{comment.voteCount}}</span>
+                    <a class="glyphicon glyphicon-arrow-down" ng-click="vote(comment, -1)"></a>
+                    <a ui-sref="question.comment({id:question.$id})" class="btn">Respond</a>
+                    <input ng-model="newComment.checkbox" type="checkbox">
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary" ng-click="show = !show">Response</button>
+                </div>
+            </li>
+        </ul>
+    </div>
 <div class="Question">
     <ul class="list-group">
         <li class="list-group-item">
@@ -25,22 +77,21 @@
 </div>
 
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <center>
-            <h3 class="panel-title jumbotron">Comments</h3> </center>
+<div id="response-enter" ng-show="!show">
+    <div class="panel-title">
+        <h3>Response</h3>
     </div>
-    <div class="panel-body">
-        <form ng-submit="addComment(newComment)">
+    <div class="row">
+        <form class="form form-inline"  ng-submit="addResponse(newResponse)">
             <div class="form-group">
-                <label for="title">Title:</label>
-                <input class="form-control" ng-model="newComment.title" type="text">
+                <label for="title">Response Title:</label>
+                <input class="form-control" ng-model="newResponse.title" type="text">
             </div>
             <div class="form-group">
                 <label for="body">Description:</label>
-                <input class="form-control" ng-model="newComment.body" type="text">
+                <input class="form-control" ng-model="newResponse.body" type="text">
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
@@ -88,11 +139,4 @@
         </li>
     </ul>
 </div>
-
-<!--<div class="col-sm-4">
-    <a ng-click="vote(1)" class="glyphicon glyphicon-arrow-up"></a>
-    <span>{{question.voteCount}}</span>
-    <a ng-click="vote(-1)" class="glyphicon glyphicon-arrow-down"></a>
-    <a ui-sref="question({id:question.$id})" class="btn">Comment</a>
-    <input ng-model="newQuestion.checkbox" type="checkbox">
-</div>-->
+</div>
