@@ -13,9 +13,7 @@
                 click here to see comments you have made<br>
                 click here to see responses you have offered<br>
                 upvotes=<br>
-                downvotes=<br>
-             
-                
+                downvotes=<br>                
             </div>
         </div>
 
@@ -25,17 +23,8 @@
 
     <div class="container">
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="question in myQuestions | filter:{visible: true} | limitTo: 5">
-                Question {{question.title}}<br> Question {{question.body}}
-                <br> Question {{question.author}}
-                <div class="container">
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="comment in myQuestions">
-                            Comment {{comment.title}}<br> comment {{comment.body}}
-                            <br>  comment {{comment.author}}
-                        </li>
-                    </ul>
-                </div>
+            <li class="list-group-item" ng-repeat="question in myQuestions">
+                Question {{question.title}}
             </li>
         </ul>
     </div>
