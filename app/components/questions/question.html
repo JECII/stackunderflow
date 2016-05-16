@@ -17,7 +17,9 @@
 <div class="Question">
     <ul class="list-group">
         <li class="list-group-item">
-            <h1>Question</h1> Title: {{question.title}}<br> Body: {{question.body}}<br> Author: {{member.username}}
+            <h1>Question</h1> Title: {{question.title}}
+            <br> Body: {{question.body}}
+            <br> Author: {{member.username}}
         </li>
     </ul>
 </div>
@@ -57,32 +59,31 @@
 
 
             <div class="row">
-                <form ng-show="response" ng-submit="addComment(newComment)">
+                <form ng-show="response" ng-submit="addResponseToComment(newResponse, comment)">
                     <div class="form-group col-sm-5">
                         <label for="title">Title:</label>
-                        <input class="form-control" ng-model="newComment.title" type="text">
+                        <input class="form-control" ng-model="newResponse.title" type="text">
                     </div>
                     <div class="form-group col-sm-5">
                         <label for="body">Description:</label>
-                        <input class="form-control" ng-model="newComment.body" type="text">
+                        <input class="form-control" ng-model="newResponse.body" type="text">
                     </div>
                     <div class="col-sm-2">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
-        </li>
-    </ul>
-</div>
+            <div ng-repeat="response in comment.responses">
+                <ul class="list-group container">
+                    <li class="list-group-item row">
+                        <div class="col-sm-10">
+                            Title: {{response.title}}
+                            <br> Body: {{response.body}}
+                            <br> Author: {{member.username}}
 
-<div ng-repeat="response in responses">
-    <ul class="list-group container">
-        <li class="list-group-item row">
-            <div class="col-sm-10">
-                Title: {{response.title}}
-                <br> Body: {{response.body}}
-                <br> Author: {{member.username}}
-
+                        </div>
+                    </li>
+                </ul>
             </div>
         </li>
     </ul>
