@@ -3,8 +3,8 @@ app.controller('DashboardController', function ($rootScope, $scope, DataService)
 	$scope.myQuestions = [];
 	$scope.tags = DataService.getTags();
 	DataService.getQuestions().$loaded(function (data) {
-		// findMemberId(data)
-		$scope.data = data
+		findMemberId(data)
+		
 	});
 
 	// console.log($scope.questions)
@@ -20,7 +20,7 @@ app.controller('DashboardController', function ($rootScope, $scope, DataService)
 			if (currentMemberId == questions[i].memberId) {
 				$scope.myQuestions.push(questions[i])
 			}
-			// return $scope.myQuestions 
+			 
 			
 		}
 	console.log($scope.myQuestions)
