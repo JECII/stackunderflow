@@ -37,7 +37,9 @@ app.controller('QuestionsController', function($rootScope, $scope, DataService) 
         question.voteCount = 0;
         for (var user in question.votes) {
             question.voteCount += question.votes[user]
+            
         }
+        
     }
 
     // question Schema

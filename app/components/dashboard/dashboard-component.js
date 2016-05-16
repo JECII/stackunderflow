@@ -11,8 +11,8 @@ app.controller('DashboardController', function ($rootScope, $scope, DataService)
 		$rootScope.member.$save()
 		console.log($rootScope.member)
 	}
-	function findMemberId(questions) {
-		// var keys = Object.keys(questions[0].comments);
+	function findMemberId(questions) {debugger
+		
 		var currentMemberId = $rootScope.member.$id;
 		for (var i = 0; i < questions.length; i++) {
 			if (currentMemberId == questions[i].memberId) {
