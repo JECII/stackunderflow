@@ -85,7 +85,7 @@ app.controller('QuestionController', function($rootScope, $scope, question, comm
 
     $scope.addResponseToComment = function(response, comment) {
         
-        comment.responses = comment.responses || []
+        comment.responses = comment.responses || [];
         comment.responses.push(response);
         $scope.comments.$save(comment);
 

@@ -204,5 +204,10 @@ margin-bottom: 5px;
 .panel-body button{
 	margin-top:370px;
 }
-
+.responses-box{
+	border: 1px solid white;
+}
+.memberQuestions {
+	height: 100px;
+}
 

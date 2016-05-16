@@ -13,20 +13,17 @@ app.controller('DashboardController', function ($rootScope, $scope, DataService)
 		console.log($rootScope.member)
 	}
 	function findMemberId(questions) {
-		// var keys = Object.keys(questions[0].comments);
 		var currentMemberId = $rootScope.member.$id;
 		for (var i = 0; i < questions.length; i++) {
 			if (currentMemberId == questions[i].memberId) {
 				$scope.myQuestions.push(questions[i])
 			}
 		}
-		// console.log(questions[0].comments[keys[0]].body)
-		// console.log(questions[0].comments[keys[1]].body)
-		// console.log(questions[0].comments[keys[2]].body)
-		// console.log(questions[0].comments[keys[1]].body)
+	console.log($scope.myQuestions)
 		
 			
 		}
+		
 	
 
 
