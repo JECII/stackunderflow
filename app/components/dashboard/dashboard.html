@@ -1,7 +1,7 @@
 <div id="main-container" class="container-fluid">
 
     <div class="welcome-profile">
-        <div class="row-p">
+        <div class="row row-p">
             <div id="greeting" class="col-xs-5">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -16,11 +16,26 @@
                     </div>
                     <div class="panel panel-body">
                         <img ng-src="{{member.imgUrl}}">
-                        <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
                     </div>
                 </div>
             </div>
 
+
+            <div class="member-questions">
+                <div class="btn-group">
+                <button class="btn btn-primary" ng-click="show = !show; bob = !bob">Edit Profile</button>
+                <button class="btn btn-primary" ng-click="bob = !bob; show = !show">Questions</button>
+                </div>
+                <div ng-show="!bob">
+                    <div id="ScrollStyle2">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="question in myQuestions">
+                                Title: {{question.title}}<br> Body: {{question.body}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-xs-7">
                 <div ng-show="show" id="profile" class="panel panel-default">
@@ -83,13 +98,52 @@
 
 
 
-<div class="container member-questions">
-    <button class="btn btn-primary" ng-click="bob = !bob">Questions</button>
-    <div class="ScrollStyle" ng-show="bob">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="question in myQuestions">
-                Title: {{question.title}}<br> Body: {{question.body}}
-            </li>
-        </ul>
+
+
+
+
+
+    <div class="item-group jumbotron">
+        <span> <em> <b>{{member.firstname}}'s reputation:{{member.reputation}}  </b> </em> </span>
+        <hr>
+
+        <hr>
     </div>
+<<<<<<< HEAD
 </div>
+=======
+
+
+
+
+
+    <!--Members are requesting a form where they can edit their memberObject.
+	items denoted with ** should be stored on the memberObject
+	howerever the edit form should not allow the Member to change these values 
+	
+	MemberObjectSchema
+	{
+		username: string,
+		firstName: string,
+		lastName: string,
+		imgUrl:  string,
+		country: string,
+		bio: string,
+		websiteUrl: string,
+		github: string,
+		twitterHandle: string,
+		favoriteTags: [tag], // <--- BONUS: use commas in the input field to add multiple tags. Or Look at multiselect inputs
+		**accountCreated: date,
+		**upVotes: number,
+		**downVotes: number,
+		**reputation: number,
+		**questions: [questionId]
+		**answers: [answerId],
+		**comments: [commentId]
+		//Add anything else you think would be a cool feature to track
+	}
+
+	WARNING: Firebase will not allow you to add null properties to any object. When you need the specific field you can simple create it and pass its value. 	
+
+-->
+>>>>>>> c87339b9fbf7a9912e8d5dc01b790bec5c278258
