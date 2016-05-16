@@ -81,7 +81,7 @@ app.controller('QuestionController', function($rootScope, $scope, question, comm
             $rootScope.member.responses = $rootScope.member.responses || {};
             $rootScope.member.responses[ref.key()] = ref.key();
             $rootScope.member.$save();
-            $scope.newResponse = null;
+            $scope.newResponse = 0;
         })
     }
 
@@ -90,6 +90,7 @@ app.controller('QuestionController', function($rootScope, $scope, question, comm
         comment.responses = comment.responses || [];
         comment.responses.push(response);
         $scope.comments.$save(comment);
+        $scope.comment.response = null;
 
     }
 
