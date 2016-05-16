@@ -211,3 +211,37 @@ margin-bottom: 5px;
 	height: 100px;
 }
 
+#ScrollStyle2{
+	background-color: white;
+  overflow-y:scroll; 
+overflow-x:hidden;
+border-radius:5px; 
+height:525px;
+border: 1px solid lightgrey;
+	padding-top: 25px;
+	margin-top: 25px;
+	margin-left:35px;
+	margin-right:35px;
+	margin-bottom: 10px;
+}
+#ScrollStyle2 li{
+    opacity: .75; 
+    filter: alpha(opacity=75);
+    -ms-filter: "alpha(opacity=75)"; 
+    -khtml-opacity: .75;
+    -moz-opacity: .75; 
+margin-top:5px;
+margin-right:50px;
+margin-left:50px;
+margin-bottom: 5px;
+padding-top: 0px;
+padding-right: 25px;
+padding-bottom: 0px;
+padding-left: 25px;
+}
+
+#ScrollStyle2 li:hover{
+    background-color: white;
+    color: black;
+}
+

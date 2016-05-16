@@ -1,7 +1,7 @@
 <div id="main-container" class="container-fluid">
 
     <div class="welcome-profile">
-        <div class="row-p">
+        <div class="row row-p">
             <div id="greeting" class="col-xs-5">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -10,11 +10,26 @@
                 </h1></div>
                     <div class="panel panel-body">
                         <img ng-src="{{member.imgUrl}}">
-                        <button class="btn btn-primary" ng-click="show = !show">Edit Profile</button>
                     </div>
                 </div>
             </div>
 
+
+            <div class="member-questions">
+                <div class="btn-group">
+                <button class="btn btn-primary" ng-click="show = !show; bob = !bob">Edit Profile</button>
+                <button class="btn btn-primary" ng-click="bob = !bob; show = !show">Questions</button>
+                </div>
+                <div ng-show="!bob">
+                    <div id="ScrollStyle2">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="question in myQuestions">
+                                Title: {{question.title}}<br> Body: {{question.body}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-xs-7">
                 <div ng-show="show" id="profile" class="panel panel-default">
@@ -76,35 +91,33 @@
 </div>
 
 
-<div class="container member-questions">
+
+
+<!--<div class="container member-questions">
     <button class="btn btn-primary" ng-click="bob = !bob">Questions</button>
-    <div class="ScrollStyle" ng-show="bob">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="question in myQuestions">
-                Title: {{question.title}}<br> Body: {{question.body}}
-            </li>
-        </ul>
+    <div ng-show="bob">
+        <div id="ScrollStyle2">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="question in myQuestions">
+                    Title: {{question.title}}<br> Body: {{question.body}}
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+</div>-->
 
 
 
 
-<!--
+
 
     <div class="item-group jumbotron">
-        <span> <em> <b>{{member.username}}'s History of: </b> </em> </span>
+        <span> <em> <b>{{member.firstname}}'s reputation:{{member.reputation}}  </b> </em> </span>
         <hr>
 
-
         <hr>
-    </div>-->
-<!--<div>
-        <hr>
-        <span> <em> <b> Reputation:{{member.reputation}} </b> </em> </span>
-        <hr>
-
     </div>
+
 
 
 
